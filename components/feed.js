@@ -12,6 +12,7 @@ import {
   Alert
 } from "react-native";
 import axios from "axios";
+
 import { TouchableOpacity } from "react-native-web";
 
 export default function Feed() {
@@ -112,16 +113,7 @@ export default function Feed() {
       <View style={{ marginTop: 10, backgroundColor:'grey',height:150 }}>
           <Text style ={{color:'red', fontWeight:'bold'}}>Simple selection</Text>
         <Picker
-          style={{
-            width: 300,
-            marginTop: 15,
-            marginLeft: 20,
-            marginRight: 20,
-            borderColor: "black",
-            borderBottomWidth: 1,
-            borderRadius: 10,
-            alignSelf: "center",
-          }}
+          style={styles.picker}
           selectedValue={selectedCity}
           onValueChange={(itemValue, itemIndex) => setSelectedCity(itemValue)}
         >
@@ -158,17 +150,6 @@ export default function Feed() {
           
         </View>
       </View>
-      {/*<div style={{ height: 120, backgroundColor: "red" }} />*/}
-      {/*<View style={{ marginTop: 5 }}>
-        <Text style={{ color: "red", fontWeight: "bold" }}>
-          Please select more than one university
-        </Text>
-        <select multiple style={{ marginTop: 30, marginBottom: 30 }}>
-          {universities.map((universities) => (
-            <option value={universities.name}>{universities.name}</option>
-          ))}
-        </select>
-      </View>*/}
       <View style={{marginTop:10, marginBottom:10}}>
           <TouchableOpacity  onPress={simpleAlertHandler} style={styles.button}>Submit</TouchableOpacity>
       </View>
@@ -183,6 +164,16 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#f8f8f8",
     alignItems: "center",
+  },
+  picker:{
+    width: 300,
+    marginTop: 15,
+    marginLeft: 20,
+    marginRight: 20,
+    borderColor: "black",
+    borderBottomWidth: 1,
+    borderRadius: 10,
+    alignSelf: "center",
   },
   text: {
     fontSize: 20,
